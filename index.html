@@ -1,9 +1,10 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Learning Vue</title>
-  <script src="https://unpkg.com/vue@3.0.0"></script>
+  <script src="https://unpkg.com/vue@next"></script>
   <style>
     body{
       background: #eee;
@@ -36,7 +37,7 @@
   <div id="app">
     <div v-if="showBooks">
       <ul>
-        <li v-for="book in books" :class="{ fav: book.isFav }">
+        <li  v-for="book in books" :class="{ fav: book.isFav }" @click="book.isFav = !book.isFav">
           <img :src="book.img" :alt="book.title">
           <h3>{{ book.title }}</h3>
           <p>{{ book.author }}</p>
