@@ -7,11 +7,21 @@
         <a href="#">sign up now</a>
         <a href="#">more info</a>
       </template>
-      <h1>Ninja Givaway!</h1>
+      <h1>Ninja Giveaway!</h1>
       <p>Grab your ninja swag for half price!</p>
     </Modal>
-  </div>  
-  <button @click.alt="toggleModal">open modal (alt click)</button>
+  </div>
+
+  <div v-else-if="showModalTwo">
+    <Modal @close="toggleModalTwo">
+      <template v-slot:title>
+        <h1> My new modal2</h1>
+      </template>
+      <p>Hi, I'm a new modal2!</p>
+    </Modal>
+  </div>
+  <button @click="toggleModal">open modal</button>
+  <button @click="toggleModalTwo">open modal2</button>
 </template>
 
 <script>
@@ -24,11 +34,15 @@ export default {
     return {
       title: 'My First Vue App!',
       showModal: false,
+      showModalTwo: false
     }
   },
   methods: {
     toggleModal() {
       this.showModal = !this.showModal
+    },
+    toggleModalTwo() {
+      this.showModalTwo = !this.showModalTwo
     }
   }
 }
