@@ -12,7 +12,10 @@
     },
     methods: {
       getPlayerSpeed(score) {
-        if (score <= 400) {
+        if (score < 250) {
+          this.$emit('gameResults', 'Ninja Fingers')
+        }
+        else if (score < 400) {
           this.$emit('gameResults', 'Rapid Reflexes')
         }
         else {
